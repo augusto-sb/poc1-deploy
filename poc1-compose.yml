@@ -1,0 +1,28 @@
+name: 'poc1'
+
+
+
+services:
+  proxy:
+    image: 'docker.io/nginx:'
+  keycloak:
+    image: 'quay.io/keycloak/keycloak:26.1.4-0'
+  backend:
+    image: 'poc1-be:1.0.0'
+    build:
+      context: ./poc1-backend/
+    networks:
+      lan: {}
+  frontend:
+    image: 'poc1-fe:1.0.0'
+    build:
+      context: ./poc1-frontend/
+    networks:
+      lan: {}
+
+
+
+networks:
+  lan:
+    driver: bridge
+    name: 'poc1'
