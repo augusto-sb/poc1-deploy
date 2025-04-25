@@ -28,9 +28,6 @@ services:
       KC_HTTP_ENABLED: 'true'
     volumes:
       - ./realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
-    #https://www.keycloak.org/server/importExport
-    #https://www.keycloak.org/server/all-config
-    #https://www.keycloak.org/server/reverseproxy
 
 #  backend:
 #    image: 'poc1-be:1.0.0'
