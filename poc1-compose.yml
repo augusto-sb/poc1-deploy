@@ -7,7 +7,7 @@ name: 'poc1'
 services:
 
   proxy:
-    image: 'docker.io/nginx:1.27.5-alpine-slim'
+    image: 'docker.io/nginx:1.28.0-alpine-slim'
     networks:
       lan: {}
     ports:
@@ -16,7 +16,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
   keycloak:
-    image: 'quay.io/keycloak/keycloak:26.1.4-0'
+    image: 'quay.io/keycloak/keycloak:26.2.1-0'
     networks:
       lan: {}
     command: 'start-dev --import-realm'
