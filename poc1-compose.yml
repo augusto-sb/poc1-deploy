@@ -2,23 +2,51 @@ name: 'poc1'
 
 
 
+
+
 services:
+
   proxy:
-    image: 'docker.io/nginx:'
+    image: 'docker.io/nginx:1.27.5-alpine-slim'
+    networks:
+      lan: {}
+    ports:
+      - 8080:8080/tcp
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
   keycloak:
     image: 'quay.io/keycloak/keycloak:26.1.4-0'
-  backend:
-    image: 'poc1-be:1.0.0'
-    build:
-      context: ./poc1-backend/
     networks:
       lan: {}
-  frontend:
-    image: 'poc1-fe:1.0.0'
-    build:
-      context: ./poc1-frontend/
-    networks:
-      lan: {}
+    command: 'start-dev --import-realm'
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HTTP_RELATIVE_PATH: '/auth/'
+      KC_PROXY_HEADERS: 'xforwarded'
+      KC_HTTP_ENABLED: 'true'
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
+    #https://www.keycloak.org/server/importExport
+    #https://www.keycloak.org/server/all-config
+    #https://www.keycloak.org/server/reverseproxy
+
+#  backend:
+#    image: 'poc1-be:1.0.0'
+#    networks:
+#      lan: {}
+#    build:
+#      context: ./poc1-backend/
+#
+#  frontend:
+#    image: 'poc1-fe:1.0.0'
+#    networks:
+#      lan: {}
+#    build:
+#      context: ./poc1-frontend/
+
+
 
 
 
