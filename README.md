@@ -8,6 +8,8 @@
 bash script.sh
 ```
 
+# READ
+this keycloak imports a realm that has client secrets and users. ONLY FOR TESTING, DO NOT USE IN PRODUCTION;
 
 # Admin keycloak cli
 
@@ -20,3 +22,7 @@ https://www.keycloak.org/server/importExport
 https://www.keycloak.org/server/all-config
 https://www.keycloak.org/server/reverseproxy
 https://github.com/little-pinecone/keycloak-in-docker/blob/master/keycloak/realms/realm-export.json
+
+this creates a reverse proxy with Nginx for a unique entrypoint
+a keycloak with a realm, public and private clients, and two users common and super with differen roles for testing
+and deploys the front and back configuring it

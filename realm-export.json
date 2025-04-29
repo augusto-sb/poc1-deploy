@@ -1,30 +1,50 @@
 {
-  "id": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
+  "users": [
+    {
+      "username": "common",
+      "enabled": true,
+      "email": "common@test.com",
+      "emailVerified": true,
+      "firstName": "FName",
+      "lastName": "LName",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "common"
+        }
+      ],
+      "realmRoles": [],
+      "clientRoles": {
+        "private": [
+          "entity-read"
+        ]
+      }
+    },
+    {
+      "username": "super",
+      "enabled": true,
+      "email": "super@test.com",
+      "emailVerified": true,
+      "firstName": "FName",
+      "lastName": "LName",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "super"
+        }
+      ],
+      "realmRoles": [],
+      "clientRoles": {
+        "private": [
+          "entity-create",
+          "entity-read",
+          "entity-update",
+          "entity-delete"
+        ]
+      }
+    }
+  ],
   "realm": "poc",
-  "notBefore": 0,
-  "defaultSignatureAlgorithm": "RS256",
-  "revokeRefreshToken": false,
-  "refreshTokenMaxReuse": 0,
-  "accessTokenLifespan": 300,
-  "accessTokenLifespanForImplicitFlow": 900,
-  "ssoSessionIdleTimeout": 1800,
-  "ssoSessionMaxLifespan": 36000,
-  "ssoSessionIdleTimeoutRememberMe": 0,
-  "ssoSessionMaxLifespanRememberMe": 0,
-  "offlineSessionIdleTimeout": 2592000,
-  "offlineSessionMaxLifespanEnabled": false,
-  "offlineSessionMaxLifespan": 5184000,
-  "clientSessionIdleTimeout": 0,
-  "clientSessionMaxLifespan": 0,
-  "clientOfflineSessionIdleTimeout": 0,
-  "clientOfflineSessionMaxLifespan": 0,
-  "accessCodeLifespan": 60,
-  "accessCodeLifespanUserAction": 300,
-  "accessCodeLifespanLogin": 1800,
-  "actionTokenGeneratedByAdminLifespan": 43200,
-  "actionTokenGeneratedByUserLifespan": 300,
-  "oauth2DeviceCodeLifespan": 600,
-  "oauth2DevicePollingInterval": 5,
   "enabled": true,
   "sslRequired": "external",
   "registrationAllowed": false,
@@ -78,45 +98,9 @@
         "attributes": {}
       },
       {
-        "id": "03c2dff0-5027-482e-a0f7-863d8830d2be",
-        "name": "entity-update",
-        "description": "",
-        "composite": false,
-        "clientRole": false,
-        "containerId": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
-        "attributes": {}
-      },
-      {
-        "id": "32c9b702-19ab-4063-bb9b-7aa16addb7b9",
-        "name": "entity-create",
-        "description": "",
-        "composite": false,
-        "clientRole": false,
-        "containerId": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
-        "attributes": {}
-      },
-      {
-        "id": "9879b15b-7a73-4620-b139-c69bbec0ed4e",
-        "name": "entity-delete",
-        "description": "",
-        "composite": false,
-        "clientRole": false,
-        "containerId": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
-        "attributes": {}
-      },
-      {
         "id": "fe17d00d-c15e-4d05-9baf-1d675581f230",
         "name": "uma_authorization",
         "description": "${role_uma_authorization}",
-        "composite": false,
-        "clientRole": false,
-        "containerId": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
-        "attributes": {}
-      },
-      {
-        "id": "e8f8b152-ac7f-48a0-8e8a-a2fd3e3642a5",
-        "name": "entity-read",
-        "description": "",
         "composite": false,
         "clientRole": false,
         "containerId": "32aa5410-106c-42c7-8b7e-439f3f9354c7",
@@ -126,39 +110,31 @@
     "client": {
       "private": [
         {
-          "id": "6760d92a-d792-49a5-b23e-96c784fd34ab",
           "name": "entity-update",
           "description": "",
           "composite": false,
           "clientRole": true,
-          "containerId": "a0cafb0c-c355-463e-a642-9b8e9adc61a7",
           "attributes": {}
         },
         {
-          "id": "db447458-17af-4bc5-a6e2-dfc2ccae5431",
           "name": "entity-delete",
           "description": "",
           "composite": false,
           "clientRole": true,
-          "containerId": "a0cafb0c-c355-463e-a642-9b8e9adc61a7",
           "attributes": {}
         },
         {
-          "id": "8129c57a-5010-4f53-be2b-b4c749901ac6",
           "name": "entity-create",
           "description": "",
           "composite": false,
           "clientRole": true,
-          "containerId": "a0cafb0c-c355-463e-a642-9b8e9adc61a7",
           "attributes": {}
         },
         {
-          "id": "53093692-c862-4742-9498-6fba468ae98e",
           "name": "entity-read",
           "description": "",
           "composite": false,
           "clientRole": true,
-          "containerId": "a0cafb0c-c355-463e-a642-9b8e9adc61a7",
           "attributes": {}
         }
       ],
@@ -745,7 +721,6 @@
       ]
     },
     {
-      "id": "a0cafb0c-c355-463e-a642-9b8e9adc61a7",
       "clientId": "private",
       "name": "",
       "description": "",
@@ -778,6 +753,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1745345074",
         "backchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "+",
         "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
       },
@@ -801,7 +777,6 @@
       ]
     },
     {
-      "id": "071811f5-2886-4013-bfb3-fb8fc20fd066",
       "clientId": "public",
       "name": "",
       "description": "",
@@ -833,6 +808,7 @@
         "oidc.ciba.grant.enabled": "false",
         "backchannel.logout.session.required": "true",
         "frontchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "+",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
@@ -1731,14 +1707,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-sha256-pairwise-sub-mapper",
             "oidc-usermodel-property-mapper",
-            "saml-user-attribute-mapper",
-            "saml-user-property-mapper",
             "oidc-usermodel-attribute-mapper",
+            "saml-user-attribute-mapper",
+            "saml-role-list-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
             "oidc-full-name-mapper",
-            "oidc-address-mapper",
-            "saml-role-list-mapper"
+            "saml-user-property-mapper",
+            "oidc-address-mapper"
           ]
         }
       },
@@ -1751,10 +1727,10 @@
         "config": {
           "allowed-protocol-mapper-types": [
             "saml-role-list-mapper",
-            "saml-user-attribute-mapper",
             "oidc-full-name-mapper",
             "oidc-usermodel-attribute-mapper",
             "saml-user-property-mapper",
+            "saml-user-attribute-mapper",
             "oidc-usermodel-property-mapper",
             "oidc-address-mapper",
             "oidc-sha256-pairwise-sub-mapper"
@@ -2600,7 +2576,7 @@
     "cibaInterval": "5",
     "realmReusableOtpCode": "false"
   },
-  "keycloakVersion": "26.1.4",
+  "keycloakVersion": "26.2.1",
   "userManagedAccessAllowed": false,
   "organizationsEnabled": false,
   "verifiableCredentialsEnabled": false,
