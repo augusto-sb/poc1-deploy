@@ -16,7 +16,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
   keycloak:
-    image: 'quay.io/keycloak/keycloak:26.2.3-0'
+    image: 'quay.io/keycloak/keycloak:26.2.4-0'
     networks:
       lan: {}
     command: 'start-dev --import-realm'
@@ -29,24 +29,24 @@ services:
     volumes:
       - ./realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
 
-#  backend:
-#    image: 'poc1-be:1.0.0'
-#    networks:
-#      lan: {}
-#    environment:
-#       AUTH_INTROSPECTION_ENDPOINT: "http://localhost:8080/auth/realms/poc/protocol/openid-connect/token/introspect"
-#       AUTH_CLIENT_ID: "private"
-#       AUTH_CLIENT_SECRET: "VaSyUQksKSDf1Suv1lLVrmxaRQNaczHW"
-#       CORS_ORIGIN: "http://localhost:4200"
-#    build:
-#      context: ./poc1-backend/
-#
-#  frontend:
-#    image: 'poc1-fe:1.0.0'
-#    networks:
-#      lan: {}
-#    build:
-#      context: ./poc1-frontend/
+  backend:
+    image: 'poc1-be:1.0.0'
+    networks:
+      lan: {}
+    environment:
+       AUTH_INTROSPECTION_ENDPOINT: "http://localhost:8080/auth/realms/poc/protocol/openid-connect/token/introspect"
+       AUTH_CLIENT_ID: "private"
+       AUTH_CLIENT_SECRET: "VaSyUQksKSDf1Suv1lLVrmxaRQNaczHW"
+       CORS_ORIGIN: "http://localhost:4200"
+    build:
+      context: ./poc1-backend/
+
+  frontend:
+    image: 'poc1-fe:1.0.0'
+    networks:
+      lan: {}
+    build:
+      context: ./poc1-frontend/
 
 
 
