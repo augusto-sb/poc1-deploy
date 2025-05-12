@@ -780,7 +780,7 @@
       "clientId": "public",
       "name": "",
       "description": "",
-      "rootUrl": "http://localhost:4200",
+      "rootUrl": "",
       "adminUrl": "",
       "baseUrl": "",
       "surrogateAuthRequired": false,
@@ -788,7 +788,8 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/*"
+        "/*",
+        "http://localhost:4200/*"
       ],
       "webOrigins": [
         "+"
