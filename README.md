@@ -26,3 +26,6 @@ https://github.com/little-pinecone/keycloak-in-docker/blob/master/keycloak/realm
 this creates a reverse proxy with Nginx for a unique entrypoint
 a keycloak with a realm, public and private clients, and two users common and super with differen roles for testing
 and deploys the front and back configuring it
+
+would be cool
+https://github.com/docker/compose/issues/11743
