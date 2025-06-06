@@ -30,7 +30,7 @@ services:
       - ./realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
 
   backend:
-    image: 'poc1-be:1.0.0'
+    image: 'chustos.io/poc1/be:${VERSION:-1.0.0}'
     networks:
       lan: {}
     environment:
@@ -41,7 +41,7 @@ services:
       context: ./poc1-backend/
 
   frontend:
-    image: 'poc1-fe:1.0.0'
+    image: 'chustos.io/poc1/fe:${VERSION:-1.0.0}'
     networks:
       lan: {}
     build:
