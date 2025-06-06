@@ -39,6 +39,8 @@ services:
       AUTH_CLIENT_SECRET: "VaSyUQksKSDf1Suv1lLVrmxaRQNaczHW"
     build:
       context: ./poc1-backend/
+      args:
+        VERSION: ${VERSION:-1.0.0}
 
   frontend:
     image: 'chustos.io/poc1/fe:${VERSION:-1.0.0}'
@@ -46,6 +48,8 @@ services:
       lan: {}
     build:
       context: ./poc1-frontend/
+      args:
+        VERSION: ${VERSION:-1.0.0}
 
 
 
